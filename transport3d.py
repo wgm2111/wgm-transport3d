@@ -29,8 +29,8 @@ import sys
 
 # Options sub-objects
 import options, group, domain, sphere
-N = 13                    # grid parameter
-M = 11                    # direction parameter
+N = 7                    # grid parameter
+M = 5                    # direction parameter
 options = options.Options('options', N, M, group_name='group48')
 
 # Group sub-objects
@@ -95,16 +95,20 @@ while (grid.scat_order <= 3):
 ### ====================================================================
 #   Visualize results
 ### ====================================================================
-# actions.plot()
-# bound.plot()
-# all_dirs.plot()
-# parg.plot()
-# solg.plot()
-#grid.plot_fluxes()
-#grid.plot_param()
-grid.plot_sos()
 
-### ====================================================================
-#   Testing
-### ====================================================================
-    
+
+# print out a table showing the order of grid rotations
+# --
+actions.print_order_table()     # the actions (rotations reflections) 
+bound.plot_orbit()              # the orbit of an incoming direction 
+
+# The discretization of the unit sphere
+# --
+# all_dirs.plot_weights()
+
+# Plots for tha parameters and solution 
+# --
+# grid.plot_fluxes()
+# grid.plot_param()
+# grid.plot_sos()
+
